@@ -1,0 +1,51 @@
+.editable-text-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.content-div {
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+
+.show-p {
+  font-size: 1rem;
+  display: flex;
+  margin: 0;
+}
+
+.show-input {
+  font-size: 1rem;
+  display: flex;
+  background-color: inherit;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 3px;
+  height: auto;
+  width: 90%
+}
+
+.edit-button {
+  padding: 0;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: inherit;
+}
+
+.edit-button:hover {
+  cursor: pointer;
+}
+
+.datetime-div {
+  display: flex;
+}
+
+.progress-entry-div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

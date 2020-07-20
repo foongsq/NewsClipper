@@ -1,0 +1,25 @@
+.app {
+  height:100vh;
+  font-family: 'Grenze Gotisch';
+  background-image: url("../../images/newspaper-background.png");
+}
+
+button {
+  font-family: 'Grenze Gotisch';
+}
+
+.top-panel {
+  padding: 1rem;
+}
+
+.top-panel h1 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.content {
+  box-sizing: border-box;
+  margin: 1rem;
+}
