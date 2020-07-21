@@ -52,9 +52,9 @@ class SignIn extends React.Component {
         {this.props.imageSrc 
           ? <div className='container'>
               <button type="submit">
-                <img className="image" src={this.props.imageSrc} />
+                <img className="image" src={this.props.imageSrc} style={{height: '50px', width:'50px'}} />
                 <div className="overlay">
-                  <p className="text">Sign In with Google</p>
+                  <p className="text">Sign In</p>
                 </div>
               </button>
             </div> 

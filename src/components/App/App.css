@@ -9,7 +9,6 @@ body {
   height: 100vh;
 }
 
-
 button {
   font-family: 'Grenze Gotisch', Helvetica;
   background-color: inherit;
@@ -29,8 +28,6 @@ button:hover {
   justify-content: space-between;
   border-bottom: 3px double black;
   align-items: center;
-  height: 15%;
-  min-height: 6rem;
 }
 
 .top-panel img {
@@ -39,6 +36,10 @@ button:hover {
   margin-top: 0.25rem;
   margin-left: 0.25rem;
 }
+
+/* .Profile {
+
+} */
 
 .title-date-tagline-div {
   display: flex;
@@ -76,8 +77,9 @@ button:hover {
   padding: 0;
   margin: 0;
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height:  3rem;
+  min-width: 11rem;
   /* border: 1px solid red; */
 }
 
@@ -101,7 +103,7 @@ button:hover {
 }
 
 .content {
-  border: 3px double black;
+  /* border-top: 3px double black; */
   /* border: 1px solid red; */
   box-sizing: border-box;
   height: 85%;

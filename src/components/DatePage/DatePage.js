@@ -112,6 +112,7 @@ import './DatePage.css';
   render() {   
     // console.log('this.state.newsclippings', this.state.newsclippings)
     let date = this.props.match.params.date;
+    console.log('date', date)
     if (this.props.firebase.auth.currentUser) {
       return (
         <div className="datepage-container">

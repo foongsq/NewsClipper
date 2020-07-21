@@ -2,6 +2,7 @@ import React from 'react';
 import { withFirebase } from '../../../Firebase/index';
 import { withRouter} from 'react-router-dom';
 import { compose } from 'recompose';
+import './SignOut.css';
 
 class SignOut extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class SignOut extends React.Component {
     return (
       <div className='container'>
         <button type="button" onClick={this.onSignOutClick}>
-          <img className="image" src={this.props.imageSrc} />
+          <img className="image" src={this.props.imageSrc} style={{height: '50px', width:'50px'}}/>
           <div className="overlay">
             <p className="text">Sign Out</p>
           </div>

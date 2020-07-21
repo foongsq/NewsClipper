@@ -11,13 +11,13 @@
 
 .overlay {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
   position: absolute;
-  top: 10px;
+  padding: 0 4px;
+  top: 11px;
   right: 8px;
   opacity: 0;
   transition: .5s ease;
+  /* border: 1px solid red; */
   background-image: url("../../../images/newspaper-background.png");
 }
 

@@ -1,0 +1,10 @@
+.overlay {
+  border-radius: 50%;
+  position: absolute;
+  padding: 0 2px;
+  top: 21px;
+  right: 8px;
+  opacity: 0;
+  transition: .5s ease;
+  background-image: url("../../../images/newspaper-background.png");
+}

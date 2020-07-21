@@ -12,6 +12,7 @@ class Card extends React.Component {
           date={this.props.date} 
           id={this.props.id} />
         <a target="_blank" href={this.props.url}>Link</a>
+        {/* <iframe src={this.props.url} frameborder="0"></iframe> */}
         <EditableText 
         content={this.props.summary} 
         type="summary" 

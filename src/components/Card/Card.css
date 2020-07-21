@@ -1,6 +1,16 @@
 .card {
-  background-color: antiquewhite;
+  /* background-image: url("../../images/newspaper-background.png"); */
+  background-color: inherit;
   border-radius: 5px;
-  margin: 0.5rem 0;
+  border: 3px double black;
+  margin: 0.5rem 0.5rem;
   padding: 0.5rem 0.5rem;
+}
+
+.card iframe {
+  width: 90%;
+}
+
+iframe::-webkit-scrollbar {  
+  display: none;
 }

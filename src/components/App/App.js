@@ -56,12 +56,14 @@ class App extends React.Component {
               <p>Life Writes Its Own Stories.</p>
               <DatePicker />
             </div>
-            {this.props.firebase.auth.currentUser
-              ? <SignOut imageSrc={this.props.firebase.auth.currentUser.photoURL} />
-              : <SignIn imageSrc={Mike} />}
-            {/* <img className="profile-pic" src={this.props.firebase.auth.currentUser 
-                ? this.props.firebase.auth.currentUser.photoURL 
-                : Mike} /> */}
+            <div className="Profile">
+              {this.props.firebase.auth.currentUser
+                ? <SignOut imageSrc={this.props.firebase.auth.currentUser.photoURL} />
+                : <SignIn imageSrc={Mike} />}
+              {/* <img className="profile-pic" src={this.props.firebase.auth.currentUser 
+                  ? this.props.firebase.auth.currentUser.photoURL 
+                  : Mike} /> */}
+            </div>
           </div>
 
           <div className="content">
