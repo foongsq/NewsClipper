@@ -1,25 +1,113 @@
-.app {
-  height:100vh;
-  font-family: 'Grenze Gotisch';
+body {
+  box-sizing: border-box; 
   background-image: url("../../images/newspaper-background.png");
+  background-repeat: repeat;
+  font-family: 'Grenze Gotisch', Helvetica;
 }
 
+.app {
+  height: 100vh;
+}
+
+
 button {
-  font-family: 'Grenze Gotisch';
+  font-family: 'Grenze Gotisch', Helvetica;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+button:hover {
+  cursor: pointer;
+  /* background-color: antiquewhite; */
 }
 
 .top-panel {
-  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px double black;
+  align-items: center;
+  height: 15%;
+  min-height: 6rem;
 }
 
-.top-panel h1 {
+.top-panel img {
+  width: 80px;
+  height: 80px;
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.title-date-tagline-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+.title-date-tagline-div p {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  padding:0;
+  line-height: 0.75rem;
+}
+
+.title-div {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  font-family: 'UnifrakturMaguntia', cursive;
+  line-height: 0;
+}
+
+.title-div h1 {
+  font-family: 'Grenze Gotisch', Helvetica;
   padding: 0;
   margin: 0;
   text-align: center;
   font-size: 4rem;
+  line-height:  4rem;
+  /* border: 1px solid red; */
+}
+
+.title-div h2 {
+  font-family: 'Grenze Gotisch', Helvetica;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 3rem;
+  line-height:  3rem;
+  /* border: 1px solid red; */
+}
+
+.tagline-and-profile-div {
+  display: flex;
+  width: 20%;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid red;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-pic {
+  width: auto;
+  height: 80px;
+  padding: 0;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  /* border: 1px solid red; */
 }
 
 .content {
+  border: 3px double black;
+  /* border: 1px solid red; */
   box-sizing: border-box;
+  height: 85%;
   margin: 1rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

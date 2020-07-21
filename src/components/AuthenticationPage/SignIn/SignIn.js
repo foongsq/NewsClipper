@@ -2,6 +2,7 @@ import React from 'react';
 import { withFirebase } from '../../../Firebase/index';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
+import './SignIn.css';
 
 class SignIn extends React.Component {
   constructor(props) {
@@ -48,8 +49,20 @@ class SignIn extends React.Component {
     return (
       <div>
         <form onSubmit={this.onGoogleSubmit}>
-          <button type="submit" ><i className="fa fa-google"></i>Sign In with Google</button>
-          {error && <p>{error.message}</p>}
+        {this.props.imageSrc 
+          ? <div className='container'>
+              <button type="submit">
+                <img className="image" src={this.props.imageSrc} />
+                <div className="overlay">
+                  <p className="text">Sign In with Google</p>
+                </div>
+              </button>
+            </div> 
+          : <button type="submit">
+              <i className="fa fa-google"></i><p>Sign In with Google</p>
+            </button>}
+          
+          {/* {error && <p>{error.message}</p>} */}
         </form>
       </div>
     );

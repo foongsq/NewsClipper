@@ -1,0 +1,16 @@
+.date-picker {
+  font-family: 'Grenze Gotisch', Helvetica;
+  background-color: inherit;
+  outline: none;
+  border: none;
+  text-align: center;
+  /* border: 1px solid red; */
+  font-size: 1.25rem;
+  padding: 0;
+  margin: 0;
+  height: 1.25rem;
+}
+
+.date-picker:hover {
+  background-color: antiquewhite;
+}

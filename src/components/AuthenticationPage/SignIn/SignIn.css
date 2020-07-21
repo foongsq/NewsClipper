@@ -1,0 +1,33 @@
+.container {
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  margin-right: 0.5rem;
+}
+
+.image {
+  margin: 0;
+  border-radius: 50%;
+}
+
+.overlay {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  opacity: 0;
+  transition: .5s ease;
+  background-image: url("../../../images/newspaper-background.png");
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: antiquewhite;
+  text-shadow: 2px 2px black;
+  font-size: 1rem;
+  text-align: center;
+}

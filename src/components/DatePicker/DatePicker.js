@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import { Redirect } from 'react-router-dom';
- 
+import './DatePicker.css';
 import "react-datepicker/dist/react-datepicker.css";
  
 // CSS Modules, react-datepicker-cssmodules.css
@@ -26,6 +26,7 @@ export default class Example extends React.Component {
       return (
       <div>
         <DatePicker
+          className="date-picker"
           selected={this.state.startDate}
           onChange={this.handleChange}
         />
@@ -36,6 +37,7 @@ export default class Example extends React.Component {
     } else {
       return (
         <DatePicker
+          className="date-picker"
           selected={this.state.startDate}
           onChange={this.handleChange}
         />

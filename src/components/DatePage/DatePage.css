@@ -1,0 +1,18 @@
+.datepage-container h1 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.datepage-container button {
+  margin: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 1rem;
+}

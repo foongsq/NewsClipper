@@ -1,15 +1,33 @@
 import React from 'react';
 import { withFirebase } from '../../../Firebase/index';
-import { useHistory } from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
+import { compose } from 'recompose';
 
-function SignOutButton({ firebase }){
-  const history = useHistory();
-  return (
-  <button type="button" onClick={() => firebase.doSignOut().then(() => history.push('/'))}>
-    <i className="fa fa-sign-out" aria-hidden="true"></i>
-    Sign Out
-  </button>
-);
+class SignOut extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onSignOutClick = this.onSignOutClick.bind(this);
   }
+
+  onSignOutClick() {
+    return this.props.firebase.doSignOut().then(() => this.props.history.push('/'));
+  }
+  render() {
+    console.log(this.props)
+    return (
+      <div className='container'>
+        <button type="button" onClick={this.onSignOutClick}>
+          <img className="image" src={this.props.imageSrc} />
+          <div className="overlay">
+            <p className="text">Sign Out</p>
+          </div>
+        </button>
+      </div> 
+      
+        
+        
+    );
+  }
+}
  
-export default withFirebase(SignOutButton);
+export default compose(withFirebase, withRouter)(SignOut);

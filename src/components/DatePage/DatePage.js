@@ -2,6 +2,8 @@ import React from 'react';
 import { withFirebase } from '../../Firebase/index';
 import AuthenticationPage from '../AuthenticationPage/AuthenticationPage';
 import Card from '../Card/Card';
+import CardList from './CardList';
+import './DatePage.css';
 
  class DatePage extends React.Component {
   constructor(props) {
@@ -20,11 +22,34 @@ import Card from '../Card/Card';
     this.handleSummaryChange = this.handleSummaryChange.bind(this);
     this.addClippingToDatabase = this.addClippingToDatabase.bind(this);
     this.refresh = this.refresh.bind(this);
+    this.onClippingDataChange = this.onClippingDataChange.bind(this);
     
+    if (this.props.firebase.auth.currentUser) {
+      this.ref = this.props.firebase.database.ref().child('users')
+      .child(this.props.firebase.auth.currentUser.uid)
+      .child('newsclippings')
+      .child(this.props.match.params.date)
+      this.ref.on('value', this.onClippingDataChange);
+    }
+  }
+
+  onClippingDataChange(snapshot) {
+    let newsclippings = [];
+    let value = snapshot.val();
+    newsclippings.push(value);
+    let arr = []
+    if (newsclippings.length > 0 && newsclippings[0] !== null) {
+      let keys = Object.keys(newsclippings[0])
+      keys.forEach(key => {
+        console.log(key)
+        arr[key] = newsclippings[0][key];
+      })
+    }
+    this.setState({ newsclippings: arr });
   }
 
   async refresh() {
-    console.log('called comdidmount')
+    // console.log('called comdidmount')
     let newsclippings = [];
     if (this.props.firebase.auth.currentUser) {
       let tempref = this.props.firebase.database.ref().child('users')
@@ -34,18 +59,18 @@ import Card from '../Card/Card';
       let snapshot = await tempref.once('value');
       let value = snapshot.val();
       newsclippings.push(value);
-      console.log('newsclippings', newsclippings);
+      // console.log('newsclippings', newsclippings);
     }
-    if (newsclippings.length > 0) {
+    let arr = []
+    if (newsclippings.length > 0 && newsclippings[0] !== null) {
       let keys = Object.keys(newsclippings[0])
-      let arr = []
       keys.forEach(key => {
         console.log(key)
         arr[key] = newsclippings[0][key];
       })
-      console.log('arr', arr)
-      this.setState({ newsclippings: arr });
+      // console.log('arr', arr)
     }
+    this.setState({ newsclippings: arr });
   }
 
   handleOpenFormClick() {
@@ -84,24 +109,20 @@ import Card from '../Card/Card';
     this.addClippingForm.reset();
   }
 
-  render() {
-    let keys = [];
-    if (this.state.newsclippings) {
-      keys = Object.keys(this.state.newsclippings);
-      console.log(keys);
-    }
-   
-    console.log('this.state.newsclippings', this.state.newsclippings)
+  render() {   
+    // console.log('this.state.newsclippings', this.state.newsclippings)
     let date = this.props.match.params.date;
     if (this.props.firebase.auth.currentUser) {
       return (
-        <div>
-          <AuthenticationPage />
-          <h1>{date}</h1>
-          <button onClick={this.refresh}>Refresh</button>
-          {this.state.openAddClippingForm
-            ? <button onClick={this.handleCloseFormClick}><i className="fa fa-times" aria-hidden="true"></i></button>
-            : <button onClick={this.handleOpenFormClick}>Add News Clipping</button>}
+        <div className="datepage-container">
+          <h1>{new Date(date).toDateString()}</h1>
+          <div className="buttons">
+            <button onClick={this.refresh}>Refresh</button>
+            {this.state.openAddClippingForm
+              ? <button onClick={this.handleCloseFormClick}><i className="fa fa-times" aria-hidden="true"></i></button>
+              : <button onClick={this.handleOpenFormClick}>Add News Clipping</button>}
+          </div>
+         
           {this.state.openAddClippingForm
             ? <form ref={(el) => this.addClippingForm = el} className="form">
               <label>Title:<input className="input" type="text" onChange={this.handleTitleChange} placeholder="Enter title here"/></label>
@@ -114,25 +135,12 @@ import Card from '../Card/Card';
               </div>
             </form>
             : null }
-          {this.state.newsclippings 
-            ? keys.reverse().map(id => {
-              let obj = this.state.newsclippings[id];
-              console.log('obj', obj)
-              return (
-                <Card 
-                  title={obj.title} 
-                  url={obj.url} 
-                  summary={obj.summary} 
-                  timestamp={obj.timestamp}
-                  date={date} 
-                  id={id}
-                />
-              );
-          }) : null}
+          
+          <CardList newsclippings={this.state.newsclippings} date={date} />
         </div>
       );
     } else {
-      return null;
+      return <p style={{textAlign: 'center'}}>Please Sign In to continue</p>;
     }    
   }
 }
