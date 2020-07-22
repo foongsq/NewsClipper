@@ -16,6 +16,7 @@ class CardList extends React.Component {
   }
 
   render() {
+    console.log('news clippings received as props', this.state.newsclippings)
     let keys = [];
     if (this.state.newsclippings) {
       keys = Object.keys(this.state.newsclippings);

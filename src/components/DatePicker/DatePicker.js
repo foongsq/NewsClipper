@@ -9,13 +9,13 @@ import "react-datepicker/dist/react-datepicker.css";
  
 export default class Example extends React.Component {
   state = {
-    startDate: new Date(),
+    date: new Date(),
     redirect: false
   };
  
   handleChange = date => {
     this.setState({
-      startDate: date,
+      date: date,
       redirect: true
     });
     
@@ -23,22 +23,24 @@ export default class Example extends React.Component {
  
   render() {
     if (this.state.redirect) {
+      let date = this.state.date;
+      let datestring = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
       return (
       <div>
         <DatePicker
           className="date-picker"
-          selected={this.state.startDate}
+          selected={this.state.date}
           onChange={this.handleChange}
         />
         <Redirect to={{
-        pathname: `/${this.state.startDate.toLocaleDateString().replace(/\//g, "-")}`
+        pathname: `/${datestring}`
       }}/>
       </div>);
     } else {
       return (
         <DatePicker
           className="date-picker"
-          selected={this.state.startDate}
+          selected={this.state.date}
           onChange={this.handleChange}
         />
       );

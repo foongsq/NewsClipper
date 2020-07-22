@@ -2,50 +2,66 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 .content-div {
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
+
 .hidden {
+  margin: 0;
+  padding: 0;
   display: none;
 }
 
 .show-p {
-  font-size: 1rem;
-  display: flex;
+  font-size: 1.25rem;
   margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
 }
 
 .show-input {
   font-size: 1rem;
-  display: flex;
   background-color: inherit;
   outline: none;
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 3px;
-  height: auto;
-  width: 90%
+  width: 90%;
+  font-family: 'Grenze Gotisch', Helvetica;
+  margin: 0;
+  padding: 0;
 }
 
-.edit-button {
-  padding: 0;
+#edit {
   border: none;
   outline: none;
   border-radius: 5px;
-  background-color: inherit;
+  margin: 0;
+  padding: 0.25rem;
+  height: 100%;
+  /* border: 1px solid red; */
 }
 
-.edit-button:hover {
+#edit:hover {
   cursor: pointer;
 }
 
 .datetime-div {
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .progress-entry-div {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }

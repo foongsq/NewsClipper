@@ -78,7 +78,6 @@ class EditableText extends React.Component {
       <div className="editable-text-container">
         <div className="content-div">
           <p className={this.state.editing ? 'hidden' : 'show-p'}>{this.state.editText}</p>
-          
           <textarea 
             rows="3"
             className={this.state.editing ? 'show-input' : 'hidden'} 
@@ -88,7 +87,7 @@ class EditableText extends React.Component {
             onKeyDown={this.handleKeyDown}
           />
         </div>
-        <button className="edit-button" onClick={this.handleEditButtonClick}><i className="fa fa-pencil" aria-hidden="true"></i></button>
+        <button id="edit" onClick={this.handleEditButtonClick}><i className="fa fa-pencil" aria-hidden="true"></i></button>
       </div>      
     );
   }

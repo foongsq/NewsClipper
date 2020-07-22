@@ -14,7 +14,6 @@ class SignOut extends React.Component {
     return this.props.firebase.doSignOut().then(() => this.props.history.push('/'));
   }
   render() {
-    console.log(this.props)
     return (
       <div className='container'>
         <button type="button" onClick={this.onSignOutClick}>
