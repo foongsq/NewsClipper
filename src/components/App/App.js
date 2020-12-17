@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { HashRouter as Router, Route,} from 'react-router-dom';
+import { HashRouter as Router, Route, Redirect} from 'react-router-dom';
 import { withFirebase } from '../../Firebase/index';
 import DatePicker from '../DatePicker/DatePicker';
 import DatePage from '../DatePage/DatePage';
@@ -65,7 +65,7 @@ class App extends React.Component {
 
           <div className="content">
             {/* {this.state.authWasListened ? <p>Authenticated! :)</p> : <p>Waiting for auth...</p>} */}
-            <Route exact path="/"></Route>
+            <Route exact path="/"><Redirect to={`/${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`} /></Route>
             <Route path={`/:date`} component={DatePage} />
           </div>
         </Router>

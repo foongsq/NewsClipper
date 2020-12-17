@@ -173,21 +173,24 @@ import './DatePage.css';
   }
 
   render() {   
+    console.log('this.state.newsclippings', this.state.newsclippings)
     let date = this.props.match.params.date;
     
     let keys = [];
     if (this.state.newsclippings) {
       keys = Object.keys(this.state.newsclippings);
     }
+    console.log('keys', keys)
     if (this.props.firebase.auth.currentUser) {
       return (
         <div className="datepage-container">
           <h1>{this.formatDate(date)}</h1>
           <div className="buttons">
-            <button onClick={this.refresh}>Refresh</button>
+            {/* <button onClick={this.refresh}>Refresh</button> */}
             {this.state.openAddClippingForm
               ? <button onClick={this.handleCloseFormClick}><i className="fa fa-times" aria-hidden="true"></i></button>
-              : <button onClick={this.handleOpenFormClick}>Add News Clipping</button>}
+              : <button onClick={this.handleOpenFormClick} className="add-clipping-button" style={{fontSize: '1rem', display:'flex', alignItems: 'center', padding: '0.5rem'}}><i className="fa fa-newspaper-o" aria-hidden="true"></i>
+              <p style={{padding: '0', margin: '0', paddingLeft: '0.5rem'}}>Add News Clipping</p></button>}
           </div>
          
           {this.state.openAddClippingForm
@@ -204,7 +207,7 @@ import './DatePage.css';
             : null }
           {/* <p>{keys}</p> */}
           {/* <CardList newsclippings={this.state.newsclippings} date={date} /> */}
-          {this.state.newsclippings 
+          {keys && keys.length > 0
             ? keys.reverse().map(id => {
               let obj = this.state.newsclippings[id];
               // console.log('obj', obj)
@@ -218,7 +221,7 @@ import './DatePage.css';
                   id={id}
                 />
               );
-          }) : null}
+          }) : <p style={{textAlign: 'center'}}>No news clippings to show. Click the "Add News Clipping" button above to get started. :)</p>}
         </div>
       );
     } else {

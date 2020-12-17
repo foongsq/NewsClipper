@@ -14,3 +14,54 @@
 .date-picker:hover {
   background-color: antiquewhite;
 }
+
+.react-datepicker__header {
+  text-align: center;
+  background-color: #d9ccab !important;
+  border-bottom: 0px !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-top: 8px;
+  position: relative;
+  box-shadow: 10px #a8a08c !important;
+}
+
+.react-datepicker {
+  font-family: 'Grenze Gotisch', Helvetica !important;
+  font-size: 1rem !important;
+  background-color: #faebc3 !important;
+  color: #000;
+  border: 0px !important;
+  border-radius: 0.3rem;
+  box-shadow: 10px 10px 5px#a8a08c !important;
+  display: inline-block;
+  position: relative;
+}
+
+.react-datepicker__day--selected {
+  background-color: #857f6f !important;
+  color:white !important;
+}
+
+.react-datepicker__day:hover {
+  background-color: #ffebb5 !important;
+  color:black !important;
+}
+
+.react-datepicker__navigation--previous {
+  left: 10px;
+  border-right-color: #857f6f !important;
+}
+
+.react-datepicker__navigation--previous:hover {
+  border-right-color:#504c42 !important;
+}
+
+.react-datepicker__navigation--next {
+  right: 10px;
+  border-left-color: #857f6f !important;
+}
+
+.react-datepicker__navigation--next:hover {
+  border-left-color: #504c42 !important;
+}

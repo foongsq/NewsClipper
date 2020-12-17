@@ -65,3 +65,12 @@
   cursor: pointer;
   background-color: rgba(253, 246, 238, 0.9);
 }
+
+.add-clipping-button {
+  box-shadow: 5px 8px 5px #888888;
+}
+
+.add-clipping-button:hover {
+  cursor: pointer;
+  background-color: rgba(253, 246, 238, 0.9);
+}

@@ -77,7 +77,7 @@ class EditableText extends React.Component {
     return (
       <div className="editable-text-container">
         <div className="content-div">
-          <p className={this.state.editing ? 'hidden' : 'show-p'}>{this.state.editText}</p>
+          <p className={this.state.editing ? 'hidden' : this.props.type === "title" ? 'show-p' : 'show-p-small'}>{this.state.editText}</p>
           <textarea 
             rows="3"
             className={this.state.editing ? 'show-input' : 'hidden'} 

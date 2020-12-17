@@ -77,11 +77,14 @@ class Card extends React.Component {
             type="title" 
             date={this.props.date} 
             id={this.props.id} />
-          <EditableText 
-          content={this.props.summary} 
-          type="summary" 
-          date={this.props.date} 
-          id={this.props.id} />
+          <div style={{display: 'flex', alignItems:'center', padding: '0', margin: '0'}}>
+            <p style={{padding: '0', margin: '0', marginRight:'0.5rem'}}>Summary: </p>
+            <EditableText 
+              content={this.props.summary} 
+              type="summary" 
+              date={this.props.date} 
+              id={this.props.id} />
+          </div>
           <div className="link"><a target="_blank" href={this.props.url}>{this.props.url}</a>
           </div>
           {/* <button onClick={this.handleAddURLClick}>Add URL</button> */}

@@ -21,6 +21,14 @@
 
 .show-p {
   font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid red; */
+}
+
+.show-p-small {
+  font-size: 1rem;
   margin: 0;
   padding: 0;
   /* border: 1px solid red; */
