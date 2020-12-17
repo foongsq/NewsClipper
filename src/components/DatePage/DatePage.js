@@ -26,6 +26,7 @@ import './DatePage.css';
     this.addClippingToDatabase = this.addClippingToDatabase.bind(this);
     this.refresh = this.refresh.bind(this);
     this.onClippingDataChange = this.onClippingDataChange.bind(this);
+    this.openGoogleNews = this.openGoogleNews.bind(this);
     this.setAuthUser = this.setAuthUser.bind(this);
     this.setAuthWasListened = this.setAuthWasListened.bind(this);
     this.authListener = this.props.firebase.auth.onAuthStateChanged(
@@ -78,6 +79,7 @@ import './DatePage.css';
       return `${day} December ${year}`;
     }
   }
+  
   setAuthUser(user) {
     this.setState({ authUser: user });
   }
@@ -172,21 +174,24 @@ import './DatePage.css';
     this.refresh();
   }
 
+  openGoogleNews(event) {
+    window.open("https://news.google.com/", "_blank")
+  }
+
   render() {   
-    console.log('this.state.newsclippings', this.state.newsclippings)
     let date = this.props.match.params.date;
     
     let keys = [];
     if (this.state.newsclippings) {
       keys = Object.keys(this.state.newsclippings);
     }
-    console.log('keys', keys)
     if (this.props.firebase.auth.currentUser) {
       return (
         <div className="datepage-container">
           <h1>{this.formatDate(date)}</h1>
+          <p style={{textAlign: 'center'}}>You have {keys.length} news clipping(s) today.</p>
           <div className="buttons">
-            {/* <button onClick={this.refresh}>Refresh</button> */}
+            <button onClick={this.openGoogleNews}>Open Google News</button>
             {this.state.openAddClippingForm
               ? <button onClick={this.handleCloseFormClick}><i className="fa fa-times" aria-hidden="true"></i></button>
               : <button onClick={this.handleOpenFormClick} className="add-clipping-button" style={{fontSize: '1rem', display:'flex', alignItems: 'center', padding: '0.5rem'}}><i className="fa fa-newspaper-o" aria-hidden="true"></i>
@@ -210,7 +215,6 @@ import './DatePage.css';
           {keys && keys.length > 0
             ? keys.reverse().map(id => {
               let obj = this.state.newsclippings[id];
-              // console.log('obj', obj)
               return (
                 <Card 
                   title={obj.title} 

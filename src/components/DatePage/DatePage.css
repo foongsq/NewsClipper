@@ -66,11 +66,12 @@
   background-color: rgba(253, 246, 238, 0.9);
 }
 
-.add-clipping-button {
+.buttons button {
+  font-size: 1rem;
   box-shadow: 5px 8px 5px #888888;
 }
 
-.add-clipping-button:hover {
+.buttons button:hover {
   cursor: pointer;
-  background-color: rgba(253, 246, 238, 0.9);
+  background-color: antiquewhite;
 }
